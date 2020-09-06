@@ -1,5 +1,5 @@
 module.exports = {
-    'url': 'http://v4.webdriver.io/',
+    'url': '/',
     'getStartedSearchQuery' : 'Get Started',
     'specialCharacters': '!!@@££',
     'invalidNumbers' : '123456'

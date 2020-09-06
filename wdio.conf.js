@@ -82,7 +82,7 @@ exports.config = {
         //
         browserName: 'chrome',
         // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
+        // it is possible to configure which outputDir is provided WebdriverIO can capture driver session logs logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
     }],
@@ -117,7 +117,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'http://v4.webdriver.io/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 5000,
@@ -133,7 +133,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone'],
+    services: ['selenium-standalone','docker'],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -160,6 +160,16 @@ exports.config = {
             language: 'en',
         }]
     ],
+
+    dockerOptions: {
+        image: 'selenium/standalone-chrome',
+        healthCheck: 'http://localhost:4444',
+        options: {
+            p: ['4444:4444'],
+            shmSize: '2g'
+        }
+    },
+    
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.

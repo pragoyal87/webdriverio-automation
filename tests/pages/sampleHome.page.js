@@ -1,5 +1,6 @@
 const NativePage = require('./native.page.js');
 const webdriverIOHomePageData = require('../files/testData/sampleHome.data.js');
+//const expect = require('expect-webdriverio');
 
 class sampleHomePage extends NativePage {
 
@@ -9,6 +10,10 @@ class sampleHomePage extends NativePage {
 
   openwebdriverIOHomepage() {
     browser.url(webdriverIOHomePageData['url']);
+    expect(browser).toHaveUrl('http://v4.webdriver.io/');
+  }
+  verifyHomePageTitle() {
+    expect(browser.getTitle()).toContain('WebdriverIO - WebDriver bindings for Node.js')
   }
 
   searchGetStarted() {
