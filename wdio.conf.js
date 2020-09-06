@@ -154,7 +154,10 @@ exports.config = {
     // see also: https://webdriver.io/docs/dot-reporter.html
     reporters: [
         // 'spec'
-
+        'dot',
+        ['junit', {
+            outputDir: './'
+        }],
         ['cucumberjs-json', {
             jsonFolder: jsonTmpDirectory,
             language: 'en',
